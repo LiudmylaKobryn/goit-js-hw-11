@@ -1,46 +1,13 @@
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
-export function showError(message) {
-  iziToast.error({
-    icon: '',
-    backgroundColor: '#ef4040',
-    position: 'topRight',
-    message: 'It`s empty here',
-    messageColor: 'white',
-  });
-}
-export function fetchImages(query) {
-  const BASE_URL = 'https://pixabay.com/api/';
+export async function fetchImages(query) {
+  const apiKey = '44002724-78e4880ab6dd2cf163db4493f';
+  const baseUrl = 'https://pixabay.com/api/';
+  const url = `${baseUrl}?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
 
-  const params = new URLSearchParams({
-    key: '44146221-7800b9e1fc66062c227071918',
-    q: query,
-    image_type: 'photo',
-    orientation: 'horizontal',
-    safesearch: true,
-  });
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch images');
+  }
 
-  const url = `${BASE_URL}?${params}`;
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.hits.length === 0) {
-        iziToast.error({
-          icon: '',
-          backgroundColor: '#ef4040',
-          position: 'topRight',
-          message:
-            '&#11198; Sorry, there are no images matching your search query. Please, try again!',
-          messageColor: 'white',
-        });
-      } else {
-        return data.hits;
-      }
-    })
-    .catch(error => console.log(error));
+  const data = await response.json();
+  return data.hits;
 }

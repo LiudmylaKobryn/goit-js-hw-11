@@ -5,176 +5,88 @@
   |============================
 */
 @import url('./reset.css');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=block');
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
+  font-family: Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.form {
-  width: 411px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 20px;
+ul {
   display: flex;
-  align-items: center;
-  border-radius: 16px;
 }
 
-.input {
-  width: 272px;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid #808080;
-  color: #808080;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-  letter-spacing: 0.64px;
-  padding: 8px 16px;
-  outline: none;
-}
-
-.input:hover {
-  border-color: #000;
-}
-
-.input:active {
-  border-color: #4e75ff;
-}
-
-.button {
-  margin-left: 8px;
-  color: #fff;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.64px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #4e75ff;
-  width: 91px;
-  height: 40px;
+.search-form {
+  margin-bottom: 20px;
 }
 
 .gallery {
-  margin: 0 auto;
-  width: 1440px;
-  min-height: 200px;
-  padding: 24px 156px;
-  display: grid;
-  grid-template-columns: repeat(3, 360px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
-  background-color: #ffffff;
-  border-radius: 8px;
 }
 
-.gallery-image {
+.gallery-item {
+  text-align: center;
+  box-sizing: border-box;
   width: 360px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #808080;
+  border: 1px solid rgba(128, 128, 128, 1);
 }
 
-.link {
-  position: relative;
+.gallery-item img {
+  max-width: 100%;
+}
+
+.gallery-item p {
+  margin: 5px 0;
+}
+.search__form {
   display: flex;
   justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
-
-.info {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 1px;
-  background-color: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  padding: 4px 25px 4px 20px;
-  width: 357px;
-  height: 48px;
-  z-index: 11;
-}
-
-.info-title {
-  color: #2e2f42;
-  font-family: Montserrat;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 16px;
-  letter-spacing: 0.48px;
-  text-align: center;
-}
-
-.info-text {
-  color: #2e2f42;
-  font-family: Montserrat;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
+.search__button {
+  margin-left: 8px;
+  background-color: rgba(78, 117, 255, 1);
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.48px;
-  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+.search__button:hover {
+  background-color: rgba(108, 140, 255, 1);
+}
+input {
+  width: 272px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 1);
+}
+input:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+input::placeholder {
+  padding: 8px 16px;
 }
 
 .loader {
   display: none;
-  margin: 40px auto;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  width: 300px;
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.sl-wrapper.simple-lightbox .sl-image img {
-  border-radius: 16px;
-  margin: 0 auto;
-}
-
-.sl-wrapper.simple-lightbox {
-  background-color: rgba(46, 47, 66, 0.8);
-}
-
-.sl-wrapper.simple-lightbox .sl-close {
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-}
-
-.sl-wrapper.simple-lightbox .sl-counter {
-  color: #fff;
-  line-height: 24px;
-  letter-spacing: 0.64px;
-}
-
-.sl-wrapper.simple-lightbox .sl-navigation button.sl-next {
-  font-size: 24px;
-  color: #fff;
-}
-
-.sl-wrapper.simple-lightbox .sl-navigation button.sl-prev {
-  font-size: 24px;
-  color: #fff;
-}
-
-.sl-wrapper .sl-image .sl-caption {
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
